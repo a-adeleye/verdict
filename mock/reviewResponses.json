@@ -1,0 +1,12 @@
+[
+  {
+    "id": "response_cascade_1",
+    "reviewId": "review_cascade_1",
+    "entityId": "entity_product_cascade",
+    "ownerUserId": "user_owner",
+    "body": "Thanks for the feedback! A firmware update improving battery life ships next month.",
+    "status": "published",
+    "createdAt": "2024-01-24T13:00:00.000Z",
+    "updatedAt": "2024-01-24T13:00:00.000Z"
+  }
+]

@@ -1,0 +1,28 @@
+<section class="filters card">
+  <div class="search-input">
+    <label>Search</label>
+    <input [(ngModel)]="term" (ngModelChange)="onSearchChange()" placeholder="Search by name" />
+  </div>
+  <div class="type-tabs">
+    <button
+      class="tab"
+      [class.active]="type === ''"
+      (click)="type = ''; onSearchChange()"
+      type="button"
+    >
+      All
+    </button>
+    <button class="tab" [class.active]="type === 'brand'" (click)="type = 'brand'; onSearchChange()" type="button">Brands</button>
+    <button class="tab" [class.active]="type === 'product'" (click)="type = 'product'; onSearchChange()" type="button">
+      Products
+    </button>
+    <button class="tab" [class.active]="type === 'movie'" (click)="type = 'movie'; onSearchChange()" type="button">Movies</button>
+    <button class="tab" [class.active]="type === 'music'" (click)="type = 'music'; onSearchChange()" type="button">Music</button>
+  </div>
+</section>
+
+<section>
+  <div class="grid cols-3">
+    <app-entity-card *ngFor="let entity of (entities$ | async)" [entity]="entity"></app-entity-card>
+  </div>
+</section>

@@ -1,0 +1,49 @@
+<ng-container *ngIf="entity$ | async as entity">
+  <section class="entity-header card">
+    <div>
+      <span class="badge">{{ entity.type }}</span>
+      <h1>{{ entity.name }}</h1>
+      <p class="text-muted">{{ entity.description }}</p>
+      <div class="meta">
+        <app-rating-badge [rating]="entity.ratingAverage" [count]="entity.ratingCount"></app-rating-badge>
+        <a class="button-primary" [routerLink]="['/write-review']" [queryParams]="{ entityId: entity.id }">Write a review</a>
+      </div>
+    </div>
+    <div class="claim">
+      <p>Is this your {{ entity.type }}?</p>
+      <button class="button-secondary" (click)="claimOpen.set(!claimOpen())">Claim this profile</button>
+      <form *ngIf="claimOpen()" (ngSubmit)="onSubmitClaim(entity)">
+        <textarea [(ngModel)]="claimMessage" name="message" placeholder="Tell us about your relationship"></textarea>
+        <input [(ngModel)]="claimWebsite" name="website" placeholder="Company website" />
+        <input [(ngModel)]="claimEmail" name="email" placeholder="Company email" />
+        <button class="button-primary" type="submit">Submit claim</button>
+      </form>
+    </div>
+  </section>
+
+  <section>
+    <h2>Reviews</h2>
+    <div class="review-list">
+      <article class="card review" *ngFor="let review of (reviewFeed$ | async)">
+        <header>
+          <div>
+            <span class="rating">★ {{ review.rating }}</span>
+            <h3>{{ review.title }}</h3>
+          </div>
+          <button *ngIf="review.userId === userId" class="button-secondary" (click)="onDeleteReview(review)">
+            Delete
+          </button>
+        </header>
+        <p>{{ review.body }}</p>
+        <footer>
+          <span class="text-muted">Posted {{ review.createdAt | date: 'mediumDate' }}</span>
+        </footer>
+        <section *ngIf="review.response" class="owner-response">
+          <h4>Owner response</h4>
+          <p>{{ review.response.body }}</p>
+          <span class="text-muted">Updated {{ review.response.updatedAt | date: 'medium' }}</span>
+        </section>
+      </article>
+    </div>
+  </section>
+</ng-container>

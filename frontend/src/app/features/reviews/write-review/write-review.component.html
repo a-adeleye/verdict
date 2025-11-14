@@ -1,0 +1,60 @@
+<section *ngIf="stage() === 'select'" class="card select-entity">
+  <h1>Choose what you're reviewing</h1>
+  <p class="text-muted">Search our directory or create a new profile inline.</p>
+  <input placeholder="Search entities" (input)="onSearch($event.target.value)" />
+  <div class="results">
+    <button class="result" *ngFor="let entity of (entities$ | async)" (click)="selectEntity(entity)">
+      <span>{{ entity.name }}</span>
+      <span class="type">{{ entity.type }}</span>
+    </button>
+  </div>
+  <div class="create-new">
+    <span>Can't find it?</span>
+    <div class="actions">
+      <button class="button-secondary" (click)="createEntity('brand')">New brand</button>
+      <button class="button-secondary" (click)="createEntity('product')">New product</button>
+      <button class="button-secondary" (click)="createEntity('movie')">New movie</button>
+      <button class="button-secondary" (click)="createEntity('music')">New music</button>
+    </div>
+  </div>
+</section>
+
+<section *ngIf="stage() === 'compose'" class="card compose">
+  <h1>Share your experience</h1>
+  <div *ngIf="selectedEntity && !createNew" class="selected-entity">
+    <h2>{{ selectedEntity.name }}</h2>
+    <span class="badge">{{ selectedEntity.type }}</span>
+  </div>
+  <div *ngIf="createNew" class="new-entity-form">
+    <label>Name</label>
+    <input [(ngModel)]="newEntity.name" name="newName" required placeholder="Entity name" />
+    <label>Description</label>
+    <textarea [(ngModel)]="newEntity.description" name="newDescription" placeholder="Short description"></textarea>
+  </div>
+
+  <form (ngSubmit)="submit()">
+    <label>Rating</label>
+    <input type="range" min="1" max="5" [(ngModel)]="rating" name="rating" />
+    <div class="rating-display">{{ rating }} stars</div>
+
+    <label>Title</label>
+    <input [(ngModel)]="title" name="title" placeholder="Give your review a title" />
+
+    <label>Review</label>
+    <textarea [(ngModel)]="body" name="body" required placeholder="Tell others what stood out"></textarea>
+
+    <div class="actions">
+      <button class="button-secondary" type="button" (click)="reset()">Back</button>
+      <button class="button-primary" type="submit">Submit review</button>
+    </div>
+  </form>
+</section>
+
+<section *ngIf="stage() === 'success'" class="card success">
+  <h1>Thanks for your review!</h1>
+  <p class="text-muted">We’ve saved it instantly in Phase 1. In production, owners may respond within 48 hours.</p>
+  <div class="actions">
+    <button class="button-secondary" (click)="router.navigate(['/entities'])">Back to explore</button>
+    <button class="button-primary" (click)="reset()">Write another</button>
+  </div>
+</section>

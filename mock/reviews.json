@@ -1,0 +1,54 @@
+[
+  {
+    "id": "review_aurora_1",
+    "entityId": "entity_brand_aurora",
+    "userId": "user_regular",
+    "rating": 5,
+    "title": "Best beans in town",
+    "body": "Their single origin lineup rotates monthly and never disappoints.",
+    "status": "published",
+    "likesCount": 12,
+    "dislikesCount": 0,
+    "createdAt": "2024-01-12T10:00:00.000Z",
+    "updatedAt": "2024-01-12T10:00:00.000Z"
+  },
+  {
+    "id": "review_cascade_1",
+    "entityId": "entity_product_cascade",
+    "userId": "user_owner",
+    "rating": 4,
+    "title": "Rich soundstage",
+    "body": "Love the spatial audio preset, though battery could be longer.",
+    "status": "published",
+    "likesCount": 8,
+    "dislikesCount": 1,
+    "createdAt": "2024-01-24T11:20:00.000Z",
+    "updatedAt": "2024-01-24T11:20:00.000Z"
+  },
+  {
+    "id": "review_solstice_1",
+    "entityId": "entity_movie_solstice",
+    "userId": "user_regular",
+    "rating": 4,
+    "title": "Emotional and smart",
+    "body": "A grounded sci-fi story with a fantastic score.",
+    "status": "published",
+    "likesCount": 5,
+    "dislikesCount": 0,
+    "createdAt": "2024-01-02T17:00:00.000Z",
+    "updatedAt": "2024-01-02T17:00:00.000Z"
+  },
+  {
+    "id": "review_echo_1",
+    "entityId": "entity_music_echo",
+    "userId": "user_regular",
+    "rating": 5,
+    "title": "Late night essential",
+    "body": "Airy vocals and lush pads. Perfect for focus.",
+    "status": "published",
+    "likesCount": 7,
+    "dislikesCount": 0,
+    "createdAt": "2024-01-18T18:00:00.000Z",
+    "updatedAt": "2024-01-18T18:00:00.000Z"
+  }
+]

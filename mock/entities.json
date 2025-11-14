@@ -1,0 +1,77 @@
+[
+  {
+    "id": "entity_brand_aurora",
+    "type": "brand",
+    "name": "Aurora Coffee",
+    "slug": "aurora-coffee",
+    "description": "Artisanal roastery focused on ethically sourced beans.",
+    "createdBy": "user_admin",
+    "status": "active",
+    "ratingCount": 4,
+    "ratingSum": 18,
+    "ratingAverage": 4.5,
+    "lastReviewAt": "2024-01-12T10:00:00.000Z",
+    "metadata": {
+      "website": "https://auroracoffee.example.com"
+    },
+    "createdAt": "2023-11-01T08:00:00.000Z",
+    "updatedAt": "2024-01-12T10:00:00.000Z"
+  },
+  {
+    "id": "entity_product_cascade",
+    "type": "product",
+    "name": "Cascade Noise-Cancelling Headphones",
+    "slug": "cascade-headphones",
+    "description": "Premium wireless headphones with adaptive sound.",
+    "createdBy": "user_regular",
+    "status": "active",
+    "ratingCount": 6,
+    "ratingSum": 26,
+    "ratingAverage": 4.33,
+    "lastReviewAt": "2024-01-25T09:30:00.000Z",
+    "metadata": {
+      "brandId": "entity_brand_aurora",
+      "sku": "CAS-ANC-01"
+    },
+    "createdAt": "2023-12-10T12:00:00.000Z",
+    "updatedAt": "2024-01-25T09:30:00.000Z"
+  },
+  {
+    "id": "entity_movie_solstice",
+    "type": "movie",
+    "name": "Solstice Rising",
+    "slug": "solstice-rising",
+    "description": "Indie sci-fi drama about a scientist racing against time.",
+    "createdBy": "user_admin",
+    "status": "active",
+    "ratingCount": 5,
+    "ratingSum": 21,
+    "ratingAverage": 4.2,
+    "lastReviewAt": "2024-01-05T15:00:00.000Z",
+    "metadata": {
+      "director": "Lena Abbott",
+      "releaseYear": 2023
+    },
+    "createdAt": "2023-10-05T09:00:00.000Z",
+    "updatedAt": "2024-01-05T15:00:00.000Z"
+  },
+  {
+    "id": "entity_music_echo",
+    "type": "music",
+    "name": "Echo Harbor - Midnight EP",
+    "slug": "echo-harbor-midnight",
+    "description": "Dream-pop EP with lush synth landscapes.",
+    "createdBy": "user_owner",
+    "status": "active",
+    "ratingCount": 3,
+    "ratingSum": 13,
+    "ratingAverage": 4.33,
+    "lastReviewAt": "2024-01-18T18:00:00.000Z",
+    "metadata": {
+      "artist": "Echo Harbor",
+      "releaseYear": 2024
+    },
+    "createdAt": "2023-09-15T13:00:00.000Z",
+    "updatedAt": "2024-01-18T18:00:00.000Z"
+  }
+]

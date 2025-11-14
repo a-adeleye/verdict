@@ -1,0 +1,9 @@
+[
+  {
+    "id": "ownership_echo_mira",
+    "entityId": "entity_music_echo",
+    "userId": "user_owner",
+    "role": "owner",
+    "createdAt": "2023-09-16T09:00:00.000Z"
+  }
+]

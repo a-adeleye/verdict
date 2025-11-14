@@ -1,0 +1,53 @@
+<section class="hero">
+  <h1>Your owner hub</h1>
+  <p class="text-muted">Monitor reviews, respond thoughtfully, and keep your profiles up to date.</p>
+</section>
+
+<section *ngIf="(dashboard$ | async) as dashboards">
+  <article class="card" *ngFor="let item of dashboards">
+    <header class="entity-header">
+      <div>
+        <span class="badge">{{ item.entity.type }}</span>
+        <h2>{{ item.entity.name }}</h2>
+        <p class="text-muted">{{ item.entity.description }}</p>
+      </div>
+      <div class="stats">
+        <span class="stat">
+          <strong>{{ item.entity.ratingAverage | number: '1.1-1' }}</strong>
+          <span class="label">Avg rating</span>
+        </span>
+        <span class="stat">
+          <strong>{{ item.entity.ratingCount }}</strong>
+          <span class="label">Reviews</span>
+        </span>
+      </div>
+    </header>
+
+    <section class="reviews" *ngIf="item.reviews.length; else emptyState">
+      <article class="review" *ngFor="let review of item.reviews">
+        <div class="review-body">
+          <h3>{{ review.title }}</h3>
+          <p>{{ review.body }}</p>
+          <span class="text-muted">Rated ★ {{ review.rating }}</span>
+        </div>
+        <div class="response">
+          <label>Response</label>
+          <textarea
+            [ngModel]="review.draft"
+            (ngModelChange)="updateDraft(review, $event)"
+            placeholder="Share a gracious response"
+          ></textarea>
+          <button class="button-primary" (click)="saveResponse(review, item.entity, auth.currentUserId!)">
+            {{ review.response ? 'Update response' : 'Publish response' }}
+          </button>
+          <span *ngIf="review.response" class="text-muted"
+            >Last updated {{ review.response.updatedAt | date: 'short' }}</span
+          >
+        </div>
+      </article>
+    </section>
+    <ng-template #emptyState>
+      <div class="empty">No reviews yet. Encourage customers to share feedback.</div>
+    </ng-template>
+  </article>
+</section>

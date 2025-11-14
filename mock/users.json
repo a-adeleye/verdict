@@ -1,0 +1,23 @@
+[
+  {
+    "id": "user_regular",
+    "displayName": "Jamie Rivera",
+    "email": "jamie@example.com",
+    "role": "regular",
+    "createdAt": "2023-08-01T10:00:00.000Z"
+  },
+  {
+    "id": "user_owner",
+    "displayName": "Mira Chen",
+    "email": "mira@echoharbor.example",
+    "role": "owner",
+    "createdAt": "2023-06-12T12:00:00.000Z"
+  },
+  {
+    "id": "user_admin",
+    "displayName": "Admin Alex",
+    "email": "admin@verdict.example",
+    "role": "admin",
+    "createdAt": "2023-01-01T00:00:00.000Z"
+  }
+]

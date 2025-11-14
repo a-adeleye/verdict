@@ -1,0 +1,43 @@
+<div class="app-container">
+  <header class="app-header">
+    <div class="brand">
+      <a routerLink="/" class="logo">Verdict</a>
+      <nav class="nav-links">
+        <a routerLink="/entities" routerLinkActive="active">Explore</a>
+        <a routerLink="/write-review" routerLinkActive="active">Write a review</a>
+        <a *ngIf="(user$ | async)?.role === UserRole.Owner" routerLink="/owner/dashboard" routerLinkActive="active"
+          >Owner dashboard</a
+        >
+        <a *ngIf="(user$ | async)?.role === UserRole.Admin" routerLink="/admin/claims" routerLinkActive="active"
+          >Admin</a
+        >
+      </nav>
+    </div>
+    <div class="auth-controls" *ngIf="user$ | async as user; else signInCta">
+      <div class="user-pill">
+        <span class="avatar">{{ user.initials }}</span>
+        <div>
+          <span class="name">{{ user.displayName }}</span>
+          <span class="role">{{ user.role }}</span>
+        </div>
+      </div>
+      <button class="button-secondary" (click)="onLogout()">Log out</button>
+    </div>
+    <ng-template #signInCta>
+      <a class="button-primary" routerLink="/login">Log in</a>
+    </ng-template>
+  </header>
+
+  <main>
+    <router-outlet></router-outlet>
+  </main>
+
+  <footer class="app-footer">
+    <span>© {{ new Date().getFullYear() }} Verdict Reviews. All rights reserved.</span>
+    <div class="footer-links">
+      <a href="#">Privacy</a>
+      <a href="#">Terms</a>
+      <a href="#">Support</a>
+    </div>
+  </footer>
+</div>

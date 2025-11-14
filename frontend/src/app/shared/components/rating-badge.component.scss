@@ -1,0 +1,16 @@
+.rating {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.star {
+  color: #fbbf24;
+}
+
+.count {
+  color: var(--color-text-secondary);
+  font-weight: 500;
+}

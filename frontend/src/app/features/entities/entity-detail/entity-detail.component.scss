@@ -1,0 +1,63 @@
+.entity-header {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+  align-items: start;
+}
+
+.entity-header h1 {
+  margin: 0.5rem 0;
+  font-size: 2.5rem;
+  letter-spacing: -0.03em;
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.claim {
+  background: #f8fafc;
+  padding: 1.5rem;
+  border-radius: var(--radius-lg);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.review-list {
+  display: grid;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.review header {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  gap: 1rem;
+}
+
+.review h3 {
+  margin: 0.25rem 0 0;
+}
+
+.review .rating {
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.owner-response {
+  background: rgba(255, 56, 92, 0.08);
+  border-radius: var(--radius-md);
+  padding: 1rem 1.25rem;
+  margin-top: 1rem;
+}
+
+@media (max-width: 900px) {
+  .entity-header {
+    grid-template-columns: 1fr;
+  }
+}

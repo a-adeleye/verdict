@@ -1,0 +1,20 @@
+{
+  "name": "review-app-functions",
+  "version": "0.1.0",
+  "scripts": {
+    "build": "tsc",
+    "deploy": "firebase deploy --only functions",
+    "serve": "firebase emulators:start --only functions"
+  },
+  "engines": {
+    "node": "18"
+  },
+  "main": "lib/index.js",
+  "dependencies": {
+    "firebase-admin": "11.10.1",
+    "firebase-functions": "4.6.0"
+  },
+  "devDependencies": {
+    "typescript": "5.3.3"
+  }
+}

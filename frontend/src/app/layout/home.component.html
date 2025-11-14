@@ -1,0 +1,27 @@
+<section class="hero">
+  <h1>Find the right pick through trusted reviews</h1>
+  <p class="text-muted">
+    Explore honest perspectives on brands, products, movies, and music – all in one beautifully simple place.
+  </p>
+  <div class="search-bar card">
+    <input placeholder="Search by name" />
+    <select>
+      <option value="">All types</option>
+      <option value="brand">Brands</option>
+      <option value="product">Products</option>
+      <option value="movie">Movies</option>
+      <option value="music">Music</option>
+    </select>
+    <a class="button-primary" routerLink="/entities">Explore</a>
+  </div>
+</section>
+
+<section class="featured">
+  <div class="section-header">
+    <h2>Trending right now</h2>
+    <a routerLink="/entities">See all</a>
+  </div>
+  <div class="grid cols-3">
+    <app-entity-card *ngFor="let entity of (featuredEntities$ | async)" [entity]="entity"></app-entity-card>
+  </div>
+</section>

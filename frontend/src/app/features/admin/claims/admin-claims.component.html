@@ -1,0 +1,50 @@
+<section class="header">
+  <div>
+    <h1>Ownership claims</h1>
+    <p class="text-muted">Review evidence and approve or reject access to owner tools.</p>
+  </div>
+  <select [(ngModel)]="status" (ngModelChange)="onFilterChange()">
+    <option value="pending">Pending</option>
+    <option value="approved">Approved</option>
+    <option value="rejected">Rejected</option>
+    <option value="all">All</option>
+  </select>
+</section>
+
+<section class="card">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Entity</th>
+        <th>User</th>
+        <th>Status</th>
+        <th>Evidence</th>
+        <th>Submitted</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let claim of (claims$ | async)">
+        <td>{{ claim.entityId }}</td>
+        <td>{{ claim.userId }}</td>
+        <td>{{ claim.status }}</td>
+        <td>
+          <div class="evidence">
+            <span *ngIf="claim.evidence.website">🌐 {{ claim.evidence.website }}</span>
+            <span *ngIf="claim.evidence.companyEmail">✉️ {{ claim.evidence.companyEmail }}</span>
+            <p *ngIf="claim.message">{{ claim.message }}</p>
+          </div>
+        </td>
+        <td>{{ claim.createdAt | date: 'medium' }}</td>
+        <td class="actions">
+          <button class="button-secondary" (click)="reject(claim)" [disabled]="claim.status === 'rejected'">
+            Reject
+          </button>
+          <button class="button-primary" (click)="approve(claim)" [disabled]="claim.status === 'approved'">
+            Approve
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</section>
